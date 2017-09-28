@@ -24,7 +24,7 @@ import configparser
 import argparse
 import os
 import logging
-logging.basicConfig(format='%(levelname)s:%(message)s',
+logging.basicConfig(format='%(levelname)s:%(message)
                     level=logging.INFO)
 
 log = logging.getLogger(__name__)
