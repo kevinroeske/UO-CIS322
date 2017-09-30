@@ -6,6 +6,6 @@
 #  ./start.sh 
 #            to start server on port from configuration files  
 # 
-python3 pageserver/pageserver.py $* & 
+python pageserver/pageserver.py $* & 
 echo $! >,pypid
 echo "----> Kill with: kill: " `cat ,pypid`

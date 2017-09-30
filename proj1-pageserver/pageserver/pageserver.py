@@ -15,13 +15,13 @@
 
 import config    # Configure from .ini files and command line
 import logging   # Better than print statements
-logging.basicConfig(format='%(levelname)s:%(message)s',
-                    level=logging.INFO)
+logging.basicConfig(format='%(levelname)s:%(message)s',level=logging.INFO)
 log = logging.getLogger(__name__)
 # Logging level may be overridden by configuration 
 
 import socket    # Basic TCP/IP communication on the internet
 import _thread   # Response computation runs concurrently with main program
+import spew
 
 
 def listen(portnum):
@@ -81,7 +81,6 @@ STATUS_NOT_IMPLEMENTED = "HTTP/1.0 401 Not Implemented\n\n"
 def respond(sock):
     """
     This server responds only to GET requests (not PUT, POST, or UPDATE).
-    Any valid GET request is answered with an ascii graphic of a cat.
     """
     sent = 0
     request = sock.recv(1024)  # We accept only short requests
@@ -92,7 +91,7 @@ def respond(sock):
     parts = request.split()
     if len(parts) > 1 and parts[0] == "GET":
         transmit(STATUS_OK, sock)
-        transmit(CAT, sock)
+        transmit(spew(parts[0]), sock)
     else:
         log.info("Unhandled request: {}".format(request))
         transmit(STATUS_NOT_IMPLEMENTED, sock)

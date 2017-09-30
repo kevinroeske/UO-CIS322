@@ -24,8 +24,7 @@ import configparser
 import argparse
 import os
 import logging
-logging.basicConfig(format='%(levelname)s:%(message)
-                    level=logging.INFO)
+logging.basicConfig(format='%(levelname)s:%(message))',level=logging.INFO)
 
 log = logging.getLogger(__name__)
 HERE = os.path.dirname(__file__)

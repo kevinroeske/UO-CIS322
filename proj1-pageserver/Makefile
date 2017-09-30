@@ -12,7 +12,7 @@ install:
 # The "or true" tells 'make' not to complain about shutting down with Ctrl-C
 # 
 run:	pageserver/pageserver.py
-	python3 pageserver/pageserver.py 
+	python pageserver/pageserver.py 
 
 # When run as "make start" and "make stop", all arguments come from 
 # the configuration file.  The 'start.sh' and 'stop.sh' scripts can also be 
